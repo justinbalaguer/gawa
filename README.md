@@ -1,17 +1,20 @@
 <b>#GAWA</b>
 
 <p>Gawa is an automation script for file creation when making your new web development projects</p>
+<small>This is not uploaded/packaged to be installed on PyPI [available on GitHub for now]</small>
 
 <h3>#REQUIREMENTS</h3>
 <code>Python 3^</code>
 
 <h3>#INSTALLATION</h3>
+<code>$ git clone https://github.com/justinbalaguer/gawa.git</code>
 <code>$ pip3 install -e gawa</code>
 
 <h3>#HOW TO USE</h3>
 <code>$ gawa [project name] [command]</code>
 <br/>
 <b><i>COMMANDS</i></b>
+<br/>
 <p><code>basic</code> - adds html,css and js</p>
 <p><code>basic-bs</code> - adds html,css and js and bootstrap (locally) [...in progress]</p>
 <p><code>basic-bs-cdn</code> - adds html,css and js and bootstrap (cdn) [...in progress]</p>
