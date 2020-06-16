@@ -1,0 +1,54 @@
+import sys
+import argparse
+import os, os.path
+import shutil
+from os import path
+
+def main():
+    parse_cmd_args(sys.argv[1:])
+
+    args = sys.argv[1:]
+    dir_name = args[0]
+    options = args[1]
+
+    if path.exists(dir_name):
+        print('directory already exists')
+    else: 
+        os.mkdir(dir_name)
+        os.chdir(dir_name)
+        print('project successfully created')
+
+    if str(options)=="basic":
+        #BASIC
+        shutil.copy2('../inc/basic/index.html','index.html')
+        # css
+        os.mkdir('css')
+        os.chdir('css/')
+        style = open("style.css","w+")
+        style.close()
+
+        os.chdir('../')
+
+        # js
+        os.mkdir('js')
+        os.chdir('js/')
+        script = open("script.js","w+")
+        script.close()
+
+        os.chdir('../')
+
+        # open
+        print('opening project...please wait')
+        # os.system("code .")
+    else:
+        print('invalid argument, try [basic],[basic-bs]')
+
+def parse_cmd_args(cmd_args):
+    parser = argparse.ArgumentParser(prog='gawa', usage='%(prog)s [project name] [command]')
+    parser._positionals.title = 'commands'
+    parser.add_argument('basic', help="Creates basic file (html,css,js)")
+    if len(cmd_args) < 2:
+        parser.print_help()
+        sys.exit(1)
+if __name__ == '__main__':
+    main()
