@@ -1,7 +1,6 @@
 import sys
 import argparse
 import os, os.path
-import shutil
 from os import path
 
 def main():
@@ -20,7 +19,9 @@ def main():
 
     if str(options)=="basic":
         #BASIC
-        shutil.copy2('../inc/basic/index.html','index.html')
+        basic = open("index.html", "w+")
+        basic.write(basic_html())
+        basic.close
         # css
         os.mkdir('css')
         os.chdir('css/')
@@ -39,7 +40,7 @@ def main():
 
         # open
         print('opening project...please wait')
-        # os.system("code .")
+        os.system("code .")
     else:
         print('invalid argument, try [basic],[basic-bs]')
 
@@ -52,3 +53,21 @@ def parse_cmd_args(cmd_args):
         sys.exit(1)
 if __name__ == '__main__':
     main()
+
+# includes
+def basic_html():
+    return """
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>Document</title>
+            <link rel="stylesheet" href="./css/style.css">
+        </head>
+        <body>
+            
+        </body>
+        <script src="./js/script.js"></script>
+        </html>
+    """
